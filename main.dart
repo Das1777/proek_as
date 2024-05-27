@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Demo Flutter',
+      title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -27,79 +27,67 @@ class BackgroundImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('image/baground.jpg'), // Ganti dengan path gambar Anda
-            fit: BoxFit.cover,
+      body: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('image/ai.jpg'), // Ganti dengan path gambar latar belakang Anda
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
-        ),
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
+          Center(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
               children: [
-                const SizedBox(height: 200), // Mengatur jarak untuk menurunkan teks
+                SizedBox(
+                  width: 100, // Atur lebar gambar sesuai kebutuhan Anda
+                  height: 100, // Atur tinggi gambar sesuai kebutuhan Anda
+                  child: Image(image: AssetImage('image/book.png')),
+                ),
+                SizedBox(height: 32), // Menambah jarak antara gambar dan teks
                 Text(
-                  'Welcome! Log in to continue',
+                  'Access Your Modern Library!',
                   style: TextStyle(
-                    color: Colors.black, // Atur warna teks menjadi hitam untuk kontras yang lebih baik
-                    fontSize: 35,
+                    fontSize: 35, // Atur ukuran font sesuai kebutuhan Anda
+                    color: Colors.white, // Atur warna teks sesuai kebutuhan Anda
                     fontWeight: FontWeight.bold,
                   ),
-                  textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 40),
-                TextField(
-                  decoration: InputDecoration(
-                    labelText: 'Email',
-                    border: OutlineInputBorder(),
-                    filled: true,
-                    fillColor: Colors.white70,
-                  ),
-                ),
-                const SizedBox(height: 20),
-                TextField(
-                  decoration: InputDecoration(
-                    labelText: 'Kata Sandi',
-                    border: OutlineInputBorder(),
-                    filled: true,
-                    fillColor: Colors.white70,
-                  ),
-                  obscureText: true,
-                ),
-                const SizedBox(height: 20),
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Definisikan aksi untuk tombol di sini
-                    },
-                    style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(vertical: 10.0),
-                    ),
-                    child: const Text(
-                      'Masuk',
-                      style: TextStyle(fontSize: 15.0),
-                    ),
-                  ),
-                ),
-                TextButton(
+                SizedBox(height: 50), // Menambah jarak antara teks dan tombol
+                ElevatedButton(
                   onPressed: () {
-                    // Aksi untuk tombol "Back" di sini
+                    // Aksi ketika tombol Sign Up ditekan
                   },
-                  child: const Text(
-                    'Back',
-                    style: TextStyle(fontSize: 15.0),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.grey, // Warna latar belakang tombol Sign Up
+                    minimumSize: Size(300, 100), // Atur ukuran minimum tombol
+                  ),
+                  child: Text(
+                    'Sign Up',
+                    style: TextStyle(fontSize: 40), // Atur ukuran font pada tombol
+                  ),
+                ),
+                SizedBox(height: 20), // Menambah jarak antara tombol Sign Up dan Sign In
+                ElevatedButton(
+                  onPressed: () {
+                    // Aksi ketika tombol Sign In ditekan
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.black, // Warna latar belakang tombol Sign In
+                    minimumSize: Size(380, 100), // Atur ukuran minimum tombol
+                  ),
+                  child: Text(
+                    'Sign In',
+                    style: TextStyle(fontSize: 40), // Atur ukuran font pada tombol
                   ),
                 ),
               ],
             ),
           ),
-        ),
+        ],
       ),
     );
   }
 }
-
