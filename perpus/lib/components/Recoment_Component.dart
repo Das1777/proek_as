@@ -48,27 +48,31 @@ class _RecommendationComponentState extends State<RecommendationComponent> {
               itemBuilder: (context, index) {
                 return Transform.scale(
                   scale: _currentPage.round() == index ? 1.0 : 0.9,
-                  child: Card(
-                    elevation: 0,
-                    child: Container(
-                      margin:
-                          EdgeInsets.symmetric(horizontal: 10), // add margin
-                      decoration: BoxDecoration(
-                        color: Colors.transparent,
-                      ),
-                      child: Column(
-                        children: [
-                          Expanded(child: Image.asset("images/peter.png")),
-                          Text(
-                            "Peterpan In Wonderland",
-                            style: TextStyle(
-                                color: Color(0xFF342066), fontSize: 18),
-                          ),
-                          Text(
-                            "By Mio Mirza",
-                            style: TextStyle(color: Colors.grey, fontSize: 15),
-                          ),
-                        ],
+                  child: InkWell(
+                    onTap: () => {Navigator.pushNamed(context, "detail")},
+                    child: Card(
+                      elevation: 0,
+                      child: Container(
+                        margin:
+                            EdgeInsets.symmetric(horizontal: 10), // add margin
+                        decoration: BoxDecoration(
+                          color: Colors.transparent,
+                        ),
+                        child: Column(
+                          children: [
+                            Expanded(child: Image.asset("images/peter.png")),
+                            Text(
+                              "Peterpan In Wonderland",
+                              style: TextStyle(
+                                  color: Color(0xFF342066), fontSize: 18),
+                            ),
+                            Text(
+                              "By Mio Mirza",
+                              style:
+                                  TextStyle(color: Colors.grey, fontSize: 15),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:perpus/Page/Detail_page.dart';
 import 'package:perpus/Page/Home_Page.dart';
 import 'package:perpus/splash_screen.dart';
 
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => SplashScreen(),
         "homepage": (context) => HomePage(),
+        "detail" :(context) => DetailPage(),
       },
     );
   }
