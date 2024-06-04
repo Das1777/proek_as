@@ -1,20 +1,26 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false, // Menghilangkan label "Debug"
       home: ProfilePage(),
     );
   }
 }
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
+  @override
+  _ProfilePageState createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  TextEditingController usernameController = TextEditingController();
+  TextEditingController classController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,93 +91,76 @@ class ProfilePage extends StatelessWidget {
               ),
             ),
             Text(
-              'Kelas: XI IPA 8',
-              style: TextStyle(
-                fontSize: 20, // Diperbesar dari 18
-                color: Colors.black, // Warna font hitam
-              ),
-            ),
-            Text(
               'Email: yandex@gmail.com',
               style: TextStyle(
                 fontSize: 20, // Diperbesar dari 18
                 color: Colors.black, // Warna font hitam
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 60),
+            // Username text field
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: Column(
-                children: [
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        // Add your edit profile code here
-                      },
-                      child: Text(
-                        'Edit Profile',
-                        style: TextStyle(fontSize: 18, color: Colors.black), // Warna font hitam
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.symmetric(vertical: 15),
-                        primary: Colors.grey[200], // Warna latar belakang tombol
-                      ),
-                    ),
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: TextFormField(
+                controller: usernameController,
+                decoration: InputDecoration(
+                  labelText: 'Username',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
                   ),
-                  SizedBox(height: 10),
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        // Add your peminjaman code here
-                      },
-                      child: Text(
-                        'Peminjaman',
-                        style: TextStyle(fontSize: 18, color: Colors.black), // Warna font hitam
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.symmetric(vertical: 15),
-                        primary: Colors.grey[200], // Warna latar belakang tombol
-                      ),
-                    ),
+                ),
+              ),
+            ),
+            SizedBox(height: 16.0),
+            // Class text field
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: TextFormField(
+                controller: classController,
+                decoration: InputDecoration(
+                  labelText: 'Class',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
                   ),
-                  SizedBox(height: 10),
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        // Add your language change code here
-                      },
-                      child: Text(
-                        'Language',
-                        style: TextStyle(fontSize: 18, color: Colors.black), // Warna font hitam
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.symmetric(vertical: 15),
-                        primary: Colors.grey[200], // Warna latar belakang tombol
-                      ),
-                    ),
+                ),
+              ),
+            ),
+            SizedBox(height: 16.0),
+            // Email text field
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: TextFormField(
+                controller: emailController,
+                decoration: InputDecoration(
+                  labelText: 'Email',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
                   ),
-                  SizedBox(height: 10),
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton.icon(
-                      onPressed: () {
-                        // Add your log out code here
-                      },
-                      icon: Icon(Icons.exit_to_app, color: Colors.black), // Warna ikon hitam
-                      label: Text(
-                        'Log Out',
-                        style: TextStyle(fontSize: 18, color: Colors.black), // Warna font hitam
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.red,
-                        padding: EdgeInsets.symmetric(vertical: 15),
-                      ),
-                    ),
+                ),
+              ),
+            ),
+            SizedBox(height: 32.0),
+            // Save button
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15.0),
+              child: SizedBox(
+                width: 300,
+                height: 50, // Increase the height
+                child: ElevatedButton(
+                  onPressed: () {
+                    // Save button action goes here
+                    // You can implement the save functionality here
+                    // For simplicity, we'll just print the entered values
+                    print('Username: ${usernameController.text}');
+                    print('Class: ${classController.text}');
+                    print('Email: ${emailController.text}');
+                  },
+                  child: Text('Save'),
+                  style: ElevatedButton.styleFrom(
+                    textStyle:
+                        TextStyle(fontSize: 25), // Increase the font size
                   ),
-                ],
+                ),
               ),
             ),
           ],
