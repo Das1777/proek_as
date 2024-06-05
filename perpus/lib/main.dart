@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:perpus/Page/Detail_page.dart';
 import 'package:perpus/Page/Home_Page.dart';
+import 'package:perpus/Page/Pengajuan_Page.dart';
 import 'package:perpus/splash_screen.dart';
 
 void main() {
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
         "/": (context) => SplashScreen(),
         "homepage": (context) => HomePage(),
         "detail" :(context) => DetailPage(),
+        "pengajuan":(context) => PengajuanPage(),
       },
     );
   }
